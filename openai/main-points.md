@@ -19,3 +19,13 @@ Spring AI
 
 ## prompt template
 
+## prompt stuffing
+
+## Advisors
+    - interseptors or middleware for prompt flow
+
+## Chat options
+    - model, frequencyPenalty, presencePenalty, temprature, topP, stopSequence, maxTokens, topK
+
+## response types
+    - content(), entity(), chatResponse(), chatClientResponse()
