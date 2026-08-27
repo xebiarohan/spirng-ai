@@ -29,3 +29,15 @@ Spring AI
 
 ## response types
     - content(), entity(), chatResponse(), chatClientResponse()
+
+## different response format
+    - string, json, XML,  POJOs, ListOutputConverter, MapOutputConverter,  BeanOutputConverter
+
+## GenAI : 
+    types of models : LLM and Diffusion
+
+## LLM models
+    - embeddings
+    - static embeddings and positional embeddings
+    - attention layer of the transformer
+
