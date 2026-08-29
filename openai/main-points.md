@@ -41,3 +41,4 @@ Spring AI
     - static embeddings and positional embeddings
     - attention layer of the transformer
 
+## ChatMemory and ChatMemoryRepository

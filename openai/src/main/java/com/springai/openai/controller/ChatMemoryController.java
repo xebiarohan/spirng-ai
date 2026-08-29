@@ -1,12 +1,10 @@
 package com.springai.openai.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -20,10 +18,12 @@ public class ChatMemoryController {
     }
 
     @GetMapping("/chat-memory")
-    public ResponseEntity<String> chatMemory(@RequestParam("message") String message) {
+    public ResponseEntity<String> chatMemory(@RequestHeader("username") String username,
+            @RequestParam("message") String message) {
         String content = chatClient
                 .prompt()
                 .user(message)
+                .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID, username))
                 .call()
                 .content();
         return ResponseEntity.ok(content);
