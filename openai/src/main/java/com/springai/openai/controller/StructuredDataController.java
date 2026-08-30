@@ -1,8 +1,7 @@
 package com.springai.openai.controller;
 
-import model.Data;
+import com.springai.openai.model.Data;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.converter.ListOutputConverter;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

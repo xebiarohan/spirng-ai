@@ -1,6 +1,6 @@
 package com.springai.openai.controller;
 
-import model.CountryCities;
+import com.springai.openai.model.CountryCities;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.converter.ListOutputConverter;

@@ -13,6 +13,8 @@ import java.util.List;
 
 @Configuration
 public class ChatMemoryChatClientConfig {
+
+
     @Bean
     public ChatMemory chatMemory(JdbcChatMemoryRepository jdbcChatMemoryRepository){
         return MessageWindowChatMemory.builder()

@@ -1,4 +1,4 @@
-package model;
+package com.springai.openai.model;
 
 import java.util.List;
 

@@ -42,3 +42,15 @@ Spring AI
     - attention layer of the transformer
 
 ## ChatMemory and ChatMemoryRepository
+
+## RAG
+    - Retrieval Augmented generation
+        - Retrieval - Searching the document in Vector database
+        - Augmentation - Picks the most relevent documents
+        - Generation - Generate the answer based on the prompt and retrieval knowledge
+
+## Vector database
+    - Stores semantic meaning of text, audio, video, documents, etc in numeric multi dimentioanal vector format.
+    - Popular vector store tools : cassandra, ElasticSearch, MongoDB, PostgreSQL with pgvector extension, Pinecone, Qdrant etc
+    - SearchRequest to search documents
+    - Qdrant dashboard : http://localhost:6333/dashboard
