@@ -54,3 +54,8 @@ Spring AI
     - Popular vector store tools : cassandra, ElasticSearch, MongoDB, PostgreSQL with pgvector extension, Pinecone, Qdrant etc
     - SearchRequest to search documents
     - Qdrant dashboard : http://localhost:6333/dashboard
+
+## Apache Tika 
+    - reading text from different types of files like PDF
+
+## RetrievalAugmentationAdvisor

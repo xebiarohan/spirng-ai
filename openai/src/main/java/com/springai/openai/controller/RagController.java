@@ -25,6 +25,9 @@ public class RagController {
     @Value("classpath:/promptTemplates/systemRandomDataTemplate.st")
     Resource randomDataTemplate;
 
+    @Value("classpath:/promptTemplates/hrPolicyTemplate.st")
+    Resource hrPolicyTemplate;
+
     public RagController(@Qualifier("chatMemoryChatClient") ChatClient chatClient, VectorStore vectorStore) {
         this.chatClient = chatClient;
         this.vectorStore = vectorStore;
@@ -32,29 +35,55 @@ public class RagController {
 
     @GetMapping("/information")
     public ResponseEntity<String> getInformation(@RequestHeader("username") String username, @RequestParam("message") String message) {
-        SearchRequest searchRequest = SearchRequest.builder()
-                .query(message)
-                .topK(3)
-                .similarityThreshold(0.5)       // probability of matching data
-                .build();
-
-        List<Document> documents = vectorStore.similaritySearch(searchRequest);
-
-        String extractedDocuments = documents
-                .stream()
-                .map(Document::getText)
-                .collect(Collectors.joining(System.lineSeparator()));
+//        SearchRequest searchRequest = SearchRequest.builder()
+//                .query(message)
+//                .topK(3)
+//                .similarityThreshold(0.5)       // probability of matching data
+//                .build();
+//
+//        List<Document> documents = vectorStore.similaritySearch(searchRequest);
+//
+//        String extractedDocuments = documents
+//                .stream()
+//                .map(Document::getText)
+//                .collect(Collectors.joining(System.lineSeparator()));
 
         String content = chatClient.prompt()
-                .system(promptSystemSpec -> promptSystemSpec
-                        .text(randomDataTemplate)
-                        .param("documents", extractedDocuments))
+//                .system(promptSystemSpec -> promptSystemSpec
+//                        .text(randomDataTemplate)
+//                        .param("documents", extractedDocuments))
                 .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID, username))
                 .user(message)
                 .call()
                 .content();
 
         return ResponseEntity.ok(content);
+    }
 
+    @GetMapping("/hr-policy")
+    public ResponseEntity<String> getHrPolicy(@RequestHeader("username") String username, @RequestParam("message") String message) {
+//        SearchRequest searchRequest = SearchRequest.builder()
+//                .query(message)
+//                .topK(3)
+//                .similarityThreshold(0.5)       // probability of matching data
+//                .build();
+//
+//        List<Document> documents = vectorStore.similaritySearch(searchRequest);
+//
+//        String extractedDocuments = documents
+//                .stream()
+//                .map(Document::getText)
+//                .collect(Collectors.joining(System.lineSeparator()));
+
+        String content = chatClient.prompt()
+//                .system(promptSystemSpec -> promptSystemSpec
+//                        .text(hrPolicyTemplate)
+//                        .param("documents", extractedDocuments))
+                .advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID, username))
+                .user(message)
+                .call()
+                .content();
+
+        return ResponseEntity.ok(content);
     }
 }
