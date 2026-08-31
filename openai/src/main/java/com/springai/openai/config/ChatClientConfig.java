@@ -12,7 +12,6 @@ public class ChatClientConfig {
 
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
-
         var chatOptions = OpenAiChatOptions.builder()
                 .model("gpt-5.4-mini")
                 .temperature(0.8)
