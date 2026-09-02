@@ -59,3 +59,12 @@ Spring AI
     - reading text from different types of files like PDF
 
 ## RetrievalAugmentationAdvisor
+
+## Advance RAG
+    - Pre retrieval using queryTransformers
+    - Post retrieval using documentPostProcessors
+
+## Embedding models used by Vector store to create embeddings of documents to store
+
+## Semantic caching
+    - using redis client
