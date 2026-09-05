@@ -68,3 +68,13 @@ Spring AI
 
 ## Semantic caching
     - using redis client
+
+## Tools calling
+    - Retrieval information : fetching real time data
+    - Taking action : Set an alarm, book a flight ticket, etc
+
+## @Tool annotation
+
+## Finish reason
+    - it is a value returned with the assistant message to the Spring AI application
+    - STOP, TOOL_CALLS
