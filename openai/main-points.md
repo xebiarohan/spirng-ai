@@ -74,7 +74,15 @@ Spring AI
     - Taking action : Set an alarm, book a flight ticket, etc
 
 ## @Tool annotation
+    - ToolParam
+    - ToolContext
+    - ToolExecutionException
 
 ## Finish reason
     - it is a value returned with the assistant message to the Spring AI application
     - STOP, TOOL_CALLS
+
+## ChatClientBuilderCustomizer
+    - @ConditionalOnProperty
+
+## ToolExecutionExceptionProcessor

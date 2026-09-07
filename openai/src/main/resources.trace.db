@@ -1,0 +1,3 @@
+2026-09-07 20:47:47.750011+04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "ISSUE CHARACTER VARYING(255)": "'User reports they are unable to create a user in RWorld. User asked Helpdesk As... (592)"; SQL statement:
+insert into helpdesk_ticket (created_at,eta,issue,status,username,id) values (?,?,?,?,?,default) [22001-240]
