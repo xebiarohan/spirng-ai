@@ -86,3 +86,20 @@ Spring AI
     - @ConditionalOnProperty
 
 ## ToolExecutionExceptionProcessor
+
+## LLM models
+    - LLM model only
+    - LLM with RAG
+    - LLM with tools
+    - AI Agent
+    - Agentic AI
+
+## MCP (Model context Protocol)
+    - Extracting the tools from an Application and move to a MCP server
+    - Standardize how application provide context to LLMs like tools, prompts, etc.
+    - MCP host, MCP server and MCP client
+
+## MCP transport types
+    - STDIO - standard Inputoutput
+    - Streamable HTTP
+    
