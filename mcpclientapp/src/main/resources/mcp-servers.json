@@ -7,6 +7,19 @@
         "@modelcontextprotocol/server-filesystem",
         "/home/rohan/study/spring-ai/mcp"
       ]
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
+      }
     }
   }
 }

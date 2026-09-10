@@ -98,8 +98,12 @@ Spring AI
     - Extracting the tools from an Application and move to a MCP server
     - Standardize how application provide context to LLMs like tools, prompts, etc.
     - MCP host, MCP server and MCP client
+    - https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro
 
 ## MCP transport types
     - STDIO - standard Inputoutput
     - Streamable HTTP
+
+## MCP Inspector
+    - npx @modelcontextprotocol/inspector
     
