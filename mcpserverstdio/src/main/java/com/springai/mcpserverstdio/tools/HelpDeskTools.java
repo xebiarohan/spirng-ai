@@ -1,14 +1,14 @@
-package com.springai.openai.tools;
+package com.springai.mcpserverstdio.tools;
 
-import com.springai.openai.entity.HelpDeskTicket;
-import com.springai.openai.model.TicketRequest;
-import com.springai.openai.service.HelpDeskTicketService;
+import com.springai.mcpserverstdio.entity.HelpDeskTicket;
+import com.springai.mcpserverstdio.model.TicketRequest;
+import com.springai.mcpserverstdio.service.HelpDeskTicketService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.model.ToolContext;
-import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.ai.tool.annotation.ToolParam;
+import org.springframework.ai.mcp.annotation.McpTool;
+import org.springframework.ai.mcp.annotation.McpToolParam;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,8 +22,8 @@ public class HelpDeskTools {
     private final HelpDeskTicketService helpDeskTicketService;
 
 
-    @Tool(name = "createTicket", description = "Creates a support Ticket")
-    String createTicket(@ToolParam(description = "Details to create a support ticket") TicketRequest ticketRequest,
+    @McpTool(name = "createTicket", description = "Creates a support Ticket")
+    String createTicket(@McpToolParam(description = "Details to create a support ticket") TicketRequest ticketRequest,
                         ToolContext toolContext) {
         String username = (String) toolContext.getContext().get("username");
         LOGGER.info("Creating support ticket for user: {} with details: {}", username, ticketRequest);
@@ -32,17 +32,7 @@ public class HelpDeskTools {
         return "Ticket #" + savedTicket.getId() + " created successfully for user " + savedTicket.getUsername();
     }
 
-//    @Tool(name = "createTicket", description = "Creates a support Ticket", returnDirect = true)
-//    String createTicket(@ToolParam(description = "Details to create a support ticket") TicketRequest ticketRequest,
-//                        ToolContext toolContext) {
-//        String username = (String) toolContext.getContext().get("username");
-//        LOGGER.info("Creating support ticket for user: {} with details: {}", username, ticketRequest);
-//        HelpDeskTicket savedTicket = helpDeskTicketService.createTicket(ticketRequest,username);
-//        LOGGER.info("Ticket created successfully. Ticket ID: {}, Username: {}", savedTicket.getId(), savedTicket.getUsername());
-//        return "Ticket #" + savedTicket.getId() + " created successfully for user " + savedTicket.getUsername();
-//    }
-
-    @Tool(description = "Fetch the status of the tickets based on a given username")
+    @McpTool(name = "getTicketStatus", description = "Fetch the status of the tickets based on a given username")
     List<HelpDeskTicket> getTicketStatus(ToolContext toolContext) {
         String username = (String) toolContext.getContext().get("username");
         LOGGER.info("Fetching tickets for user: {}", username);

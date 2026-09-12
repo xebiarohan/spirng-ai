@@ -107,3 +107,4 @@ Spring AI
 ## MCP Inspector
     - npx @modelcontextprotocol/inspector
     
+## McpToolFilter
