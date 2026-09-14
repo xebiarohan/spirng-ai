@@ -108,3 +108,12 @@ Spring AI
     - npx @modelcontextprotocol/inspector
     
 ## McpToolFilter
+    - Global level using McpToolFilter interface
+    - Controller level
+
+## MCP Logging
+    - A MCP server can push logs event to the client as it works
+    - McpSyncRequestContext in server
+    - @McpLogging in client
+
+## MCP tool progress notification

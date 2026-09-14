@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.model.ToolContext;
 import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
+import org.springframework.ai.mcp.annotation.context.McpSyncRequestContext;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -33,11 +34,14 @@ public class HelpDeskTools {
     }
 
     @McpTool(name = "getTicketStatus", description = "Fetch the status of the tickets based on a given username")
-    List<HelpDeskTicket> getTicketStatus(ToolContext toolContext) {
+    List<HelpDeskTicket> getTicketStatus(ToolContext toolContext, McpSyncRequestContext context) {
         String username = (String) toolContext.getContext().get("username");
-        LOGGER.info("Fetching tickets for user: {}", username);
+        // sending logs to MCP client
+        context.info("Fetching tickets for user: " + username);
         List<HelpDeskTicket> tickets =  helpDeskTicketService.getTicketsByUsername(username);
         LOGGER.info("Found {} tickets for user: {}", tickets.size(), username);
+
+        context.progress();
         // throw new RuntimeException("Unable to fetch ticket status");
         return tickets;
     }
