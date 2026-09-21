@@ -117,3 +117,19 @@ Spring AI
     - @McpLogging in client
 
 ## MCP tool progress notification
+    - McpSyncRequestContext progress method in server
+    - @McpProgress in client
+
+## MCP sampling
+    - MCP server requesting MCP client to run a prompt on its behalf
+    - Need to enable sampling on the client
+
+## MCP elicitation
+    - A server side tool pauses, asks for the user/Client application input and then continues the process
+
+## @McpResources, @McpPrompt, @McpComplete
+
+## Spring AI Evaluators
+    - Checks if a LLM response is appropriate for a given prompt
+    - RelevancyEvaluator
+    - FactCheckingEvaluator
