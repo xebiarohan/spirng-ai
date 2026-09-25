@@ -133,3 +133,16 @@ Spring AI
     - Checks if a LLM response is appropriate for a given prompt
     - RelevancyEvaluator
     - FactCheckingEvaluator
+    - Runtime validation using FactCheckingEvaluator and retry mechanism
+    - Bespoke Minicheck LLM model to valiadate the response
+
+## Observability
+    - Logs, metrics and tracing
+
+## Prometheus
+    - Open source matrix and monitoring system
+
+## Grafana
+    - Displaying matrix using a dashboard
+
+## OpenTelemetry and Jaeger
